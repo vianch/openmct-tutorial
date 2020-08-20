@@ -19,6 +19,6 @@ jobs:
         with:
           username: mvkaran
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: https://docker.pkg.github.com 
+          registry: docker.pkg.github.com 
           repository: mvkaran/openmct-tutorial/opemct
           tag_with_ref: true
