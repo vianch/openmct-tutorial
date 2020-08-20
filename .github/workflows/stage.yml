@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    tags:
+    - stage-*
+
+jobs: 
+  build:
+   
+    runs-on: ubuntu-latest
+   
+    steps:
+      - name: Checkout files    
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
+        with:
+          username: mvkaran
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: https://docker.pkg.github.com 
+          repository: mvkaran/openmct-tutorial/opemct:stage
+          tag_with_ref: true
+          tag_with_sha: true
